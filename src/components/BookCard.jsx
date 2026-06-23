@@ -1,15 +1,11 @@
 function BookCard({book}) {
 
-    let cover_image = ""
     const book_link = `https://openlibrary.org${book.key}`;
     const author_link = `https://openlibrary.org/authors/${book.author_key}`;
     const authors = book.author_name.join(", ");
-
-    if (book.cover_i) {
-        cover_image = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
-    } else {
-        cover_image = "https://placehold.net/400x600.png";
-    }
+    
+    let cover_image = ""
+    (book.cover_i) ? cover_image = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : cover_image = "https://placehold.net/400x600.png";
 
     return(
         <>
