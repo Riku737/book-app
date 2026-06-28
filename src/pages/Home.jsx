@@ -21,6 +21,7 @@ function Home() {
             try {
                 const trendingBooks = await getTrendingBooks();
                 setBooks(trendingBooks);
+                // console.log(trendingBooks);
             } catch(error) {
                 console.log(error);
                 setError("Failed to load books from Open Library");

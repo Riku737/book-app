@@ -38,18 +38,16 @@ export const getAuthor = async (author_key) => {
 
 export const getAuthorName = async (authors) => {
 
-	const author_name = [];
+	const author_info = [];
 
 	for (const author of authors) {
-
 		// console.log(author);
-
 		const response = await fetch(`${BASE_URL}${author.author.key}.json`);
 		const data = await response.json();
-		author_name.push(data.name);
+		author_info.push({"key": data.key, "name": data.name});
 	}
 
-	return (author_name);
+	return (author_info);
 }
 
 export const getBook = async (book_key) => {

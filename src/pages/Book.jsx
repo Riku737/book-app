@@ -18,11 +18,12 @@ function Book() {
                 setError(null);
 
                 const data = await getBook(id);
-                setBook(data);
 
                 // Retrieve author names manually because book API doesn't show the names (only shows author IDs)
                 const authors = await getAuthorName(data.authors);
-                // console.log(authors);
+                data["authors"] = authors;
+                setBook(data);
+                console.log(data);
 
             } catch (e) {
                 console.log(e);
@@ -55,7 +56,18 @@ function Book() {
                 </div>
                 <div className="col-6">
                     <h1>{book.title}</h1>
-                    <p>{book.author}</p>
+                    <p>
+                        {book.authors.map((author, index) => (
+                            <span key={index}>
+                                <a
+                                    href={`${author.key}`}
+                                    className="text-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-100-hover">
+                                    {author.name}
+                                </a>
+                                {index < book.authors.length - 1 && ", "}
+                            </span>
+                        ))}
+                    </p>
                 </div>
             </div>
         </>
