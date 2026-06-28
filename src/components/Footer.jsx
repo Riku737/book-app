@@ -7,12 +7,12 @@ function Footer() {
                 <div className="row">
 
                     <div className="col-3">
-                        <h5>Bookstore</h5>
+                        <h6>Bookstore</h6>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed iaculis elit. Donec bibendum in elit in mollis.</p>
                     </div>
 
                     <div className="col-3">
-                        <h5>Shop</h5>
+                        <h6>Shop</h6>
                         <ul className="list-unstyled d-flex flex-column gap-2">
                             <li>Text</li>
                             <li>Text</li>
@@ -22,7 +22,7 @@ function Footer() {
                     </div>
 
                     <div className="col-3">
-                        <h5>Help</h5>
+                        <h6>Help</h6>
                         <ul className="list-unstyled d-flex flex-column gap-2">
                             <li>Text</li>
                             <li>Text</li>
@@ -32,7 +32,7 @@ function Footer() {
                     </div>
 
                     <div className="col-2">
-                        <h5>About</h5>
+                        <h6>About</h6>
                         <ul className="list-unstyled d-flex flex-column gap-2">
                             <li>Text</li>
                             <li>Text</li>
