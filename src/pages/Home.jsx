@@ -4,7 +4,7 @@ import { searchBooks, getTrendingBooks } from "../services/api";
 
 import { useState, useEffect } from "react";
 
-function Home() {
+export default function Home() {
 
     // React Hook
     // Initial value equals "" (empty string)
@@ -99,5 +99,3 @@ function Home() {
         </>
     );
 }
-
-export default Home;

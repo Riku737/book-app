@@ -1,4 +1,6 @@
-function Cart() {
+import { database } from "../db/database.js";
+
+export default function Bookshelf() {
     return(
         <>
             <h1>Cart</h1>
@@ -7,4 +9,3 @@ function Cart() {
     );
 }
 
-export default Cart

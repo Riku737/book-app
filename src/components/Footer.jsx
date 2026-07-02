@@ -12,12 +12,12 @@ function Footer() {
                     </div>
 
                     <div className="col-3">
-                        <h6>Shop</h6>
+                        <h6>Bookshelf</h6>
                         <ul className="list-unstyled d-flex flex-column gap-2">
-                            <li>Text</li>
-                            <li>Text</li>
-                            <li>Text</li>
-                            <li>Text</li>
+                            <li>Want to Read</li>
+                            <li>Currently Reading</li>
+                            <li>Read</li>
+                            <li>Did Not Finish</li>
                         </ul>
                     </div>
 

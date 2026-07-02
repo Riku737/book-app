@@ -1,7 +1,7 @@
 import './css/App.css';
 import {Routes, Route} from "react-router-dom";
 
-import Cart from './pages/Cart';
+import Cart from './pages/Bookshelf.jsx';
 import Home from './pages/Home';
 
 import NavBar from './components/NavBar';
@@ -10,7 +10,9 @@ import Footer from './components/Footer';
 import Book from "./pages/Book";
 import Author from "./pages/Author";
 
-function App() {
+import Bookshelf from "./pages/Bookshelf.jsx";
+
+export default function App() {
 
 	return (
 		<>
@@ -18,18 +20,14 @@ function App() {
 		<div className="container my-5">
 			<Routes>
 				<Route path="/" element={<Home />} />
-				<Route path="/books" element={<Book />}>
-					<Route path="/books/:id" element={<Book />} />
-				</Route>
+				<Route path="/books" element={<Book />} />
+				<Route path="/books/:id" element={<Book />} />
 				<Route path ="/authors" element={<Home />} />
 				<Route path="/authors/:id" element={<Author />} />
-				<Route path='/cart' element={<Cart />} />
+				<Route path='/bookshelf' element={<Bookshelf />} />
 			</Routes>
 		</div>
 		<Footer />
 		</>
 	);
 }
-
-
-export default App;
