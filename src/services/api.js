@@ -16,13 +16,13 @@ export async function getTrendingBooks() {
 	const response = await fetch(`${BASE_URL}/trending/weekly.json?limit=10&language=eng`);
 	const data = await response.json();
 	return (data.works);
-};
+}
 
 export async function searchBooks(query) {
 	const response = await fetch(`${BASE_URL}/search.json?q=${encodeURIComponent(query)}&limit=10&language=eng&mode=everything`);
 	const data = await response.json();
 	return (data.docs);
-};
+}
 
 export async function getAuthor(author_key) {
 	const response = await fetch(`${BASE_URL}/authors/${author_key}.json`);
