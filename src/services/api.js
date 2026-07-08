@@ -6,6 +6,7 @@ const BASE_URL = "https://openlibrary.org";
 
 // Asynchronous operations/tasks that takes time and mandates a Promise (give data eventually) to be returned
 
+// Return the trendiest books from Open Library
 export async function getTrendingBooks() {
 	/*
 	1. Send request to URL (Open Library API) and asks server for data
@@ -18,12 +19,14 @@ export async function getTrendingBooks() {
 	return (data.works);
 }
 
+// Return searched information (books)
 export async function searchBooks(query) {
 	const response = await fetch(`${BASE_URL}/search.json?q=${encodeURIComponent(query)}&limit=10&language=eng&mode=everything`);
 	const data = await response.json();
 	return (data.docs);
 }
 
+// Return information of a specific author
 export async function getAuthor(author_key) {
 	const response = await fetch(`${BASE_URL}/authors/${author_key}.json`);
 
@@ -36,6 +39,7 @@ export async function getAuthor(author_key) {
 	return (data);
 }
 
+// Return name and key dictionary of a specific author
 export async function getAuthorName (authors) {
 
 	const author_info = [];
@@ -50,7 +54,8 @@ export async function getAuthorName (authors) {
 	return (author_info);
 }
 
-export async function getBook (book_key) {
+// Return information about a specific book
+export async function getBook(book_key) {
 	const response = await fetch(`${BASE_URL}/works/${book_key}.json`);
 
 	if (!response.ok) { // Response validation (e.g., error 404)
@@ -62,6 +67,7 @@ export async function getBook (book_key) {
 	return (data);
 }
 
+// Return list of books by author
 export async function getAuthorBooks(author_key){
 	const response = await fetch(`${BASE_URL}/authors/${author_key}/works.json?limit=10`);
 
