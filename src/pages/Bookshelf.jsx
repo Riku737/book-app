@@ -22,31 +22,31 @@ export default function Bookshelf() {
 
     return(
         <>
-            <h1 className="mb-4">My Bookshelf ({totalBooks.all})</h1>
+            <h1 className="mb-4">My Bookshelf ({totalBooks.all ?? 0})</h1>
 
             <ul className="nav nav-tabs mb-4" id="myTab" role="tablist">
                 <li className="nav-item" role="presentation">
                     <button onClick={ () => setStatus("want_to_read") } className="nav-link active" id="home-tab" data-bs-toggle="tab"
                             data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane"
-                            aria-selected="true">Want to Read ({totalBooks.want_to_read})
+                            aria-selected="true">Want to Read ({totalBooks.want_to_read ?? 0})
                     </button>
                 </li>
                 <li className="nav-item" role="presentation">
                     <button onClick={ () => setStatus("read") } className="nav-link" id="profile-tab" data-bs-toggle="tab"
                             data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane"
-                            aria-selected="false">Read ({totalBooks.read})
+                            aria-selected="false">Read ({totalBooks.read ?? 0})
                     </button>
                 </li>
                 <li className="nav-item" role="presentation">
                     <button onClick={ () => setStatus("reading") } className="nav-link" id="contact-tab" data-bs-toggle="tab"
                             data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane"
-                            aria-selected="false">Currently Reading ({totalBooks.reading})
+                            aria-selected="false">Currently Reading ({totalBooks.reading ?? 0})
                     </button>
                 </li>
                 <li className="nav-item" role="presentation">
                     <button onClick={ () => setStatus("dnf") } className="nav-link" id="contact-tab" data-bs-toggle="tab"
                             data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane"
-                            aria-selected="false">Did Not Finish ({totalBooks.dnf})
+                            aria-selected="false">Did Not Finish ({totalBooks.dnf ?? 0})
                     </button>
                 </li>
             </ul>
