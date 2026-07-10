@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-import {useEffect, useState} from "react";
 import {useLiveQuery} from "dexie-react-hooks";
 import {db} from "../../db/database.js";
 
