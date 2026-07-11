@@ -13,6 +13,9 @@ export default function BookCoverCarousel({book}) {
                                 <img
                                     key={index}
                                     src={`https://covers.openlibrary.org/b/id/${cover}-L.jpg`}
+                                    onError={(e) => {
+                                        e.target.src = "https://placehold.co/400x600?text=No+Cover";
+                                    }}
                                     alt={book.title}
                                     className={`carousel-item ${index === 0 ? "active" : ""} object-fit-contain p-4`}
                                 />
@@ -34,7 +37,7 @@ export default function BookCoverCarousel({book}) {
                 ): (
                     <div className="ratio d-flex justify-content-center">
                         <img
-                            src="https://placehold.net/400x600.png"
+                            src="https://placehold.co/400x600?text=No+Cover"
                             alt={book.title}
                             className="object-fit-contain p-4"
                         />

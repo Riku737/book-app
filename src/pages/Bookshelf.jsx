@@ -48,8 +48,6 @@ export default function Bookshelf() {
                         onClick={() => handleTabClick("want_to_read")}
                         className={`nav-link ${(bookshelfStatus === "want_to_read" || bookshelfStatus === undefined) && "active"}`}
                         id="want_to_read"
-                        data-bs-toggle="tab"
-                        data-bs-target="#want_to_read-tab-pane"
                         type="button"
                         role="tab"
                         aria-controls="want_to_read-tab-pane"
@@ -64,8 +62,6 @@ export default function Bookshelf() {
                         onClick={() => handleTabClick("reading")}
                         className={`nav-link ${bookshelfStatus === "reading" && "active"}`}
                         id="reading"
-                        data-bs-toggle="tab"
-                        data-bs-target="#reading"
                         type="button"
                         role="tab"
                         aria-controls="reading-tab-pane"
@@ -80,8 +76,6 @@ export default function Bookshelf() {
                         onClick={() => handleTabClick("read")}
                         className={`nav-link ${bookshelfStatus === "read" && "active"}`}
                         id="read"
-                        data-bs-toggle="tab"
-                        data-bs-target="#read-tab-pane"
                         type="button"
                         role="tab"
                         aria-controls="read-tab-pane"
@@ -96,8 +90,6 @@ export default function Bookshelf() {
                         onClick={() => handleTabClick("dnf")}
                         className={`nav-link ${bookshelfStatus === "dnf" && "active"}`}
                         id="dnf"
-                        data-bs-toggle="tab"
-                        data-bs-target="#dnf"
                         type="button"
                         role="tab"
                         aria-controls="dnf-tab-pane"
@@ -118,8 +110,8 @@ export default function Bookshelf() {
                 >
 
                     <div className="row g-4">
-                        {books.map((book) => (
-                            <BookshelfBookCard book={book} key={book.id} />
+                        {books.map((book, index) => (
+                            <BookshelfBookCard book={book} key={index} />
                         ))}
                     </div>
 
@@ -133,8 +125,8 @@ export default function Bookshelf() {
                 >
 
                     <div className="row g-4">
-                        {books.map((book) => (
-                            <BookshelfBookCard book={book} key={book.id} />
+                        {books.map((book, index) => (
+                            <BookshelfBookCard book={book} key={index} />
                         ))}
                     </div>
 
@@ -148,8 +140,8 @@ export default function Bookshelf() {
                 >
 
                     <div className="row g-4">
-                        {books.map((book) => (
-                            <BookshelfBookCard book={book} key={book.id} />
+                        {books.map((book, index) => (
+                            <BookshelfBookCard book={book} key={index} />
                         ))}
                     </div>
 
@@ -163,8 +155,8 @@ export default function Bookshelf() {
                 >
 
                     <div className="row g-4">
-                        {books.map((book) => (
-                            <BookshelfBookCard book={book} key={book.id} />
+                        {books.map((book, index) => (
+                            <BookshelfBookCard book={book} key={index} />
                         ))}
                     </div>
 

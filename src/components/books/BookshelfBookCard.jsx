@@ -13,7 +13,10 @@ export default function HomeBookCard({book}) {
                     {/*Book Cover*/}
                     <a className="bg-light ratio ratio-1x1 d-flex justify-content-center rounded link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href={book_link}>
                         <img
-                            src={book.bookCovers ? (`https://covers.openlibrary.org/b/id/${book.bookCovers[0]}-M.jpg`) : (`https://placehold.net/400x600.png`)}
+                            src={book.bookCovers ? (`https://covers.openlibrary.org/b/id/${book.bookCovers[0]}-M.jpg`) : (`https://placehold.co/400x600?text=No+Cover`)}
+                            onError={(e) => {
+                                e.target.src = "https://placehold.co/400x600?text=No+Cover";
+                            }}
                             className="object-fit-contain p-4"
                             alt={book.title}
                         />
