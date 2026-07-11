@@ -1,50 +1,40 @@
-import { useState, useEffect } from "react";
 import BookshelfBookCard from "../components/books/BookshelfBookCard.jsx";
-import { db, getBooksByStatus } from "../db/database.js";
+import { db } from "../db/database.js";
 import { useLiveQuery } from "dexie-react-hooks";
-import { useParams } from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 
 export default function Bookshelf() {
 
-    const { bookshelfStatus } = useParams();
-    const validStatus = new Set(["tbr", "read", "reading", "dnf", undefined]);
     /*
     Definitions:
-    - tbr => To be Read (Want to Read)
+    - want_to_read => To be Read (Want to Read)
     - read => Read
     - reading => Currently Reading
     - dnf => Did not Finish
     - undefined => Show bookshelf without specified tab
     */
 
-    if (!validStatus.has(bookshelfStatus)) {
-        return (
-            <>
-                <h1>Invalid route parameter</h1>
-            </>
-        );
-    }
+    const { bookshelfStatus } = useParams(); // Get status from URL
+    const navigate = useNavigate();
+    const currentStatus = bookshelfStatus ?? "want_to_read";
 
-    const [books, setBooks] = useState([]);
-    const [status, setStatus] = useState(bookshelfStatus ?? "want_to_read");
+    const books = useLiveQuery(
+        () => db.books.where({ status: currentStatus }).toArray(),
+        [currentStatus]
+    ) ?? [];
 
-    const allCount = useLiveQuery(() => db.books.count(), []);
-    const wantToReadCount = useLiveQuery(() => db.books.where({ status: "want_to_read" }).count(), []);
-    const readCount = useLiveQuery(() => db.books.where({ status: "read" }).count(), []);
-    const readingCount = useLiveQuery(() => db.books.where({ status: "reading" }).count(), []);
-    const dnfCount = useLiveQuery(() => db.books.where({ status: "dnf" }).count(), []);
+    const allBooks = useLiveQuery(() => db.books.toArray(), []) ?? [];
 
     const totalBooks = {
-        all: allCount,
-        want_to_read: wantToReadCount,
-        read: readCount,
-        reading: readingCount,
-        dnf: dnfCount
+        want_to_read: allBooks.filter(b => b.status === "want_to_read").length ?? 0,
+        read: allBooks.filter(b => b.status === "read").length ?? 0,
+        reading: allBooks.filter(b => b.status === "reading").length ?? 0,
+        dnf: allBooks.filter(b => b.status === "dnf").length ?? 0,
     };
 
-    useEffect(() => {
-        getBooksByStatus(status).then(setBooks);
-    }, [status]);
+    function handleTabClick(newStatus) {
+        navigate(`/bookshelf/${newStatus}`);
+    }
 
     return (
         <>
@@ -55,9 +45,9 @@ export default function Bookshelf() {
                 {/* Want to Read */}
                 <li className="nav-item" role="presentation">
                     <button
-                        onClick={() => setStatus("want_to_read")}
-                        className={`nav-link ${(bookshelfStatus === "tbr" || bookshelfStatus === undefined) && "active"}`}
-                        id="tbr"
+                        onClick={() => handleTabClick("want_to_read")}
+                        className={`nav-link ${(bookshelfStatus === "want_to_read" || bookshelfStatus === undefined) && "active"}`}
+                        id="want_to_read"
                         data-bs-toggle="tab"
                         data-bs-target="#want_to_read-tab-pane"
                         type="button"
@@ -65,13 +55,13 @@ export default function Bookshelf() {
                         aria-controls="want_to_read-tab-pane"
                         aria-selected="true"
                     >
-                        Want to Read ({totalBooks.want_to_read ?? 0})
+                        Want to Read ({totalBooks.want_to_read})
                     </button>
                 </li>
                 {/* Currently Reading */}
                 <li className="nav-item" role="presentation">
                     <button
-                        onClick={() => setStatus("read")}
+                        onClick={() => handleTabClick("read")}
                         className={`nav-link ${bookshelfStatus === "read" && "active"}`}
                         id="read"
                         data-bs-toggle="tab"
@@ -81,13 +71,13 @@ export default function Bookshelf() {
                         aria-controls="read-tab-pane"
                         aria-selected="false"
                     >
-                        Read ({totalBooks.read ?? 0})
+                        Read ({totalBooks.read})
                     </button>
                 </li>
                 {/* Read */}
                 <li className="nav-item" role="presentation">
                     <button
-                        onClick={() => setStatus("reading")}
+                        onClick={() => handleTabClick("reading")}
                         className={`nav-link ${bookshelfStatus === "reading" && "active"}`}
                         id="reading"
                         data-bs-toggle="tab"
@@ -97,13 +87,13 @@ export default function Bookshelf() {
                         aria-controls="reading-tab-pane"
                         aria-selected="false"
                     >
-                        Currently Reading ({totalBooks.reading ?? 0})
+                        Currently Reading ({totalBooks.reading})
                     </button>
                 </li>
                 {/* Did Not Finish */}
                 <li className="nav-item" role="presentation">
                     <button
-                        onClick={() => setStatus("dnf")}
+                        onClick={() => handleTabClick("dnf")}
                         className={`nav-link ${bookshelfStatus === "dnf" && "active"}`}
                         id="dnf"
                         data-bs-toggle="tab"
@@ -113,7 +103,7 @@ export default function Bookshelf() {
                         aria-controls="dnf-tab-pane"
                         aria-selected="false"
                     >
-                        Did Not Finish ({totalBooks.dnf ?? 0})
+                        Did Not Finish ({totalBooks.dnf})
                     </button>
                 </li>
             </ul>
@@ -121,7 +111,7 @@ export default function Bookshelf() {
             <div className="tab-content" id="myTabContent">
             {/*Want to Read*/}
                 <div
-                    className={`tab-pane fade ${(bookshelfStatus === "tbr" || bookshelfStatus === undefined) && "show active"}`}
+                    className={`tab-pane fade ${(bookshelfStatus === "want_to_read" || bookshelfStatus === undefined) && "show active"}`}
                     role="tabpanel"
                     aria-labelledby="want_to_read-tab"
                     tabIndex="0"
