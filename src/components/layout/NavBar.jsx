@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import {useLiveQuery} from "dexie-react-hooks";
 import {db} from "../../db/database.js";
+import SearchBar from "../SearchBar.jsx";
 
 function NavBar() {
 
@@ -84,27 +85,7 @@ function NavBar() {
                     </div>
 
                     {/*Center (web search)*/}
-                    <form
-                        className="input-group position-absolute top-50 start-50 translate-middle w-25 d-none d-lg-flex"
-                        role="search"
-                    >
-                        {/*Search button*/}
-                        <button
-                            className="btn btn-primary"
-                            type="submit"
-                            id="button-search"
-                        >
-                            <i className="bi bi-search"></i>
-                        </button>
-                        {/*Search field*/}
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="Search by title or author"
-                            aria-label="Search"
-                            aria-describedby="button-search-field"
-                        />
-                    </form>
+                    <SearchBar/>
 
                 </div>
 
