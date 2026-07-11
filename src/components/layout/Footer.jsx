@@ -49,7 +49,8 @@ function Footer() {
 
                 <hr/>
 
-                <p>Note: This website is a personal, non-commercial project. All book metadata and cover images are sourced from the <a href="https://openlibrary.org/" target="_blank">Open Library API</a>, and all trademarks belong to their respective owners. My project codebase is public on <a className="link" href="https://github.com/Riku737/book-app" target="_blank">Github</a>.</p>
+                <p>This website is a personal, non-commercial project. All book metadata and cover images are sourced from the <a href="https://openlibrary.org/" target="_blank">Open Library API</a>, and all trademarks belong to their respective owners.</p>
+                <p>This site stores data locally in your browser using IndexedDB. No information is shared or uploaded.</p>
 
             </div>
         </div>
