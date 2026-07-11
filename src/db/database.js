@@ -20,7 +20,7 @@ export const databaseReady = initializeDatabase();
 // Add book to bookshelf (and modify status of existing book)
 export async function addToBookshelf(status, title, bookKey, authors, bookCovers) {
 
-    const existingBook = await db.books.where("bookKey").equals(bookKey).first();
+    const existingBook = !!await db.books.where("bookKey").equals(bookKey).first();
     const bookData = { status, title, bookKey, authors, bookCovers };
 
     if (existingBook) {
@@ -30,9 +30,13 @@ export async function addToBookshelf(status, title, bookKey, authors, bookCovers
     return db.books.add(bookData);
 }
 
-// async function bookExists(book) {
-//     const existingBook = await db.books.where("bookKey").equals(book.key);
-// }
+export async function isInBookshelf(bookKey) {
+    return !!await db.books.where("bookKey").equals(bookKey).first();
+}
+
+export async function removeBook(bookKey) {
+    await db.books.where("bookKey").equals(bookKey).delete();
+}
 
 // Return books where book = specified status
 export function getBooksByStatus(status) {
@@ -56,6 +60,6 @@ async function initializeDatabase() {
         await seedDatabase();
     } 
     // else {
-    //     resetDatabase(); // Reset entire database on load (tentative)
+    //     await resetDatabase(); // Reset entire database on load (tentative)
     // }
 }

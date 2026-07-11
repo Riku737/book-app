@@ -43,6 +43,8 @@ export default function Book() {
     // let cover_image;
     // (book.covers) ? cover_image = `https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg` : cover_image = "https://placehold.net/400x600.png";
 
+    // console.log(book);
+
     return (
         <>
             <div className="row g-5">
