@@ -49,19 +49,7 @@ function Footer() {
 
                 <hr/>
 
-                <div className="row">
-                    <div className="col-lg-6">
-                        <p>API: <a href="https://openlibrary.org/" target="_blank">Open Library</a></p>
-                    </div>
-                    <div className="col-lg-6">
-                        <ul className="list-unstyled d-flex justify-content-lg-end flex-row gap-3">
-                            <li>
-                                <a className="link" href="https://github.com/Riku737/book-app" target="_blank"><i
-                                    className="bi bi-github me-1"></i>Github</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <p>Note: This website is a personal, non-commercial project. All book metadata and cover images are sourced from the <a href="https://openlibrary.org/" target="_blank">Open Library API</a>, and all trademarks belong to their respective owners. My project codebase is public on <a className="link" href="https://github.com/Riku737/book-app" target="_blank">Github</a>.</p>
 
             </div>
         </div>
