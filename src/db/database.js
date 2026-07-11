@@ -20,7 +20,7 @@ export const databaseReady = initializeDatabase();
 // Add book to bookshelf (and modify status of existing book)
 export async function addToBookshelf(status, title, bookKey, authors, bookCovers) {
 
-    const existingBook = !!await db.books.where("bookKey").equals(bookKey).first();
+    const existingBook = await db.books.where("bookKey").equals(bookKey).first();
     const bookData = { status, title, bookKey, authors, bookCovers };
 
     if (existingBook) {

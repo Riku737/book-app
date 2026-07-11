@@ -9,16 +9,13 @@ function BookDropdown({ book }) {
         isInBookshelf(book.key).then(setInBookshelf);
     }, [book.key]);
 
-    function addToBookshelfButton(status) {
-        const handleAdd = async () => {
-            try {
-                await addToBookshelf(status, book.title, book.key, book.authors, book.covers);
-                setInBookshelf(true);
-            } catch (error) {
-                console.error('Error adding book to bookshelf', error);
-            }
+    async function addToBookshelfButton(status) {
+        try {
+            await addToBookshelf(status, book.title, book.key, book.authors, book.covers);
+            setInBookshelf(true);
+        } catch (error) {
+            console.error('Error adding book to bookshelf', error);
         }
-        handleAdd();
     }
 
     return (
@@ -35,8 +32,9 @@ function BookDropdown({ book }) {
                     <li className={`${ !inBookshelf && "d-none"}`}><hr className="dropdown-divider" /></li>
                     <li
                         onClick={() => {
-                            removeBook(book.key);
-                            setInBookshelf(false);
+                            removeBook(book.key).then(() => {
+                                setInBookshelf(false);
+                            });
                         }}
                         className={`${ !inBookshelf && "d-none"}`}
                     >
