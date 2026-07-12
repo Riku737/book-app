@@ -4,6 +4,7 @@ import { getAuthorName, getBook } from "../services/api.js";
 import Description from "../components/books/BookDescription.jsx";
 import BookButton from "../components/books/BookDropdown.jsx";
 import BookCoverCarousel from "../components/books/BookCoverCarousel.jsx";
+import BookCover from "../components/books/BookCover.jsx";
 
 export default function Book() {
 
@@ -34,6 +35,7 @@ export default function Book() {
             }
         }
         loadBook();
+
     }, [id]);
 
     if (loading) return <h1>Loading...</h1>;
@@ -50,7 +52,11 @@ export default function Book() {
             <div className="row g-5">
 
                 <div className="col-md-6">
-                    <BookCoverCarousel book={book} />
+                    {(book.covers?.length === 1) ? (
+                        <BookCover book={book}/>
+                    ) : (
+                        <BookCoverCarousel book={book} />
+                    )}
                 </div>
 
                 <div className="col-md-6 d-flex flex-column row-gap-3">
