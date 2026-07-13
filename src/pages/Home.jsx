@@ -3,6 +3,7 @@ import HomeBookCard from "../components/books/SearchBookCard.jsx";
 import { getTrendingBooks } from "../services/api";
 
 import { useState, useEffect } from "react";
+import LoadingBooks from "../components/loading/LoadingBooks.jsx";
 
 export default function Home() {
 
@@ -28,30 +29,33 @@ export default function Home() {
         loadTrendingBooks();
     }, []);
 
+
+    if (loading) {
+        return(
+            <LoadingBooks/>
+        );
+    }
+
+    if (error) {
+        return(
+            <h1>{error}</h1>
+        );
+    }
+
     return (
         <>
-            {/*Page title*/}
             <title>Home | BookBook</title>
-
             <section>
                 <h1 className="mb-4">Home</h1>
             </section>
-
-            {error && <p>{error}</p>}
-
-            {loading ? (
-                <p>Loading books...</p>
-            ) : (
-                <div className="row g-4">
-                    {books.map(
-                        (book) => 
-                            (
-                                <HomeBookCard book={book} key={book.key} />
-                            )
-                    )}
-                </div>
-            )}
-
+            <section className="row g-4">
+                {books.map(
+                    (book) =>
+                        (
+                            <HomeBookCard book={book} key={book.key} />
+                        )
+                )}
+            </section>
         </>
     );
 }

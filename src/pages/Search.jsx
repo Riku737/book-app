@@ -2,6 +2,7 @@ import { useSearchParams } from 'react-router-dom';
 import {useEffect, useState} from "react";
 import {searchBooks} from "../services/api.js";
 import HomeBookCard from "../components/books/SearchBookCard.jsx";
+import LoadingBooks from "../components/loading/LoadingBooks.jsx";
 
 export default function Search() {
 
@@ -38,21 +39,26 @@ export default function Search() {
 
     // console.log(searchParams);
 
+    if (loading) {
+        return(
+            <LoadingBooks />
+        )
+    }
+
+    if (error) {
+        return(
+            <h1>{error}</h1>
+        )
+    }
+
     return(
         <>
             <h1 className="mb-4">{query ?? "Search by title or author"}</h1>
-
-            {error && <p>{error}</p>}
-
-            {loading ? (
-                <p>Loading...</p>
-            ) : (
-                <section className="row g-4">
-                    {books.map((book, index) => (
-                        <HomeBookCard book={book} key={index} />
-                    ))}
-                </section>
-            )}
+            <section className="row g-4">
+                {books.map((book, index) => (
+                    <HomeBookCard book={book} key={index} />
+                ))}
+            </section>
         </>
     );
 }

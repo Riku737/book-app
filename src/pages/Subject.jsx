@@ -2,7 +2,7 @@ import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getBooksBySubject} from "../services/api.js";
 import SubjectBookCard from "../components/books/SubjectBookCard.jsx";
-import Loading from "../components/loading/Loading.jsx";
+import LoadingBooks from "../components/loading/LoadingBooks.jsx";
 
 export default function Subject() {
 
@@ -39,7 +39,7 @@ export default function Subject() {
 
     if (loading) {
         return(
-            <Loading />
+            <LoadingBooks />
         );
     }
 

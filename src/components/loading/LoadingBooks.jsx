@@ -1,6 +1,6 @@
 import PlaceholderBookCard from "./PlaceholderBookCard.jsx";
 
-export default function Loading() {
+export default function LoadingBooks() {
 
     const items = [];
 
