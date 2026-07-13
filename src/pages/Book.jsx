@@ -2,9 +2,10 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getAuthorName, getBook } from "../services/api.js";
 import Description from "../components/books/BookDescription.jsx";
-import BookButton from "../components/books/BookDropdown.jsx";
 import BookCoverCarousel from "../components/books/BookCoverCarousel.jsx";
 import BookCover from "../components/books/BookCover.jsx";
+import LoadingBook from "../components/loading/LoadingBook.jsx";
+import BookDropdown from "../components/books/BookDropdown.jsx";
 
 export default function Book() {
 
@@ -40,7 +41,13 @@ export default function Book() {
 
     }, [id]);
 
-    if (loading) return <h1>Loading...</h1>;
+    if (loading) {
+        return(
+            <LoadingBook/>
+        );
+    }
+
+    // if (loading) return <h1>Loading...</h1>;
     if (error) return <h1>Failed to load book</h1>;
     if (!book) return <h1>No book found</h1>;
 
@@ -78,7 +85,7 @@ export default function Book() {
                         </p>
                     </div>
 
-                    <BookButton book={book} />
+                    <BookDropdown book={book} />
 
                     <Description content={book.description} />
 

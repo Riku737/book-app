@@ -2,7 +2,7 @@ import { useSearchParams } from 'react-router-dom';
 import {useEffect, useState} from "react";
 import {searchBooks} from "../services/api.js";
 import HomeBookCard from "../components/books/SearchBookCard.jsx";
-import LoadingBooks from "../components/loading/LoadingBooks.jsx";
+import LoadingBookCards from "../components/loading/LoadingBookCards.jsx";
 
 export default function Search() {
 
@@ -41,7 +41,7 @@ export default function Search() {
 
     if (loading) {
         return(
-            <LoadingBooks />
+            <LoadingBookCards />
         )
     }
 

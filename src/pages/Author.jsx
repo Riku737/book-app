@@ -35,15 +35,15 @@ export default function Author() {
         loadAuthor();
     }, [id]); // Run whenever id updates
 
-    if (error) {
-        return(
-            <h1>Failed to load author</h1>
-        );
-    }
-
     if (loading) {
         return(
             <h1>Loading...</h1>
+        );
+    }
+
+    if (error) {
+        return(
+            <h1>Failed to load author</h1>
         );
     }
 

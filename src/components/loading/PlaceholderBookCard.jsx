@@ -6,7 +6,7 @@ export default function PlaceholderBookCard() {
                 <div className="d-flex gap-2 d-flex flex-column">
 
                     {/*Book Cover*/}
-                    <div className="placeholder bg-light ratio ratio-1x1 rounded"></div>
+                    <div className="bg-light ratio ratio-1x1 rounded"></div>
 
                     {/*Book Title & Author*/}
                     <div className="d-flex flex-column placeholder-glow">

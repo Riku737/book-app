@@ -3,7 +3,7 @@ import HomeBookCard from "../components/books/SearchBookCard.jsx";
 import { getTrendingBooks } from "../services/api";
 
 import { useState, useEffect } from "react";
-import LoadingBooks from "../components/loading/LoadingBooks.jsx";
+import LoadingBookCards from "../components/loading/LoadingBookCards.jsx";
 
 export default function Home() {
 
@@ -32,7 +32,7 @@ export default function Home() {
 
     if (loading) {
         return(
-            <LoadingBooks/>
+            <LoadingBookCards/>
         );
     }
 
