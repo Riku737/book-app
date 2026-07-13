@@ -90,7 +90,7 @@ export async function getBook(book_key) {
 export async function getBooksBySubject(subject) {
 	await sleep();
 
-	const response = await fetch(`${BASE_URL}/subjects/${encodeURIComponent(subject).trim()}.json?details=false&limit=10`);
+	const response = await fetch(`${BASE_URL}/subjects/${encodeURIComponent(subject).trim().toLowerCase()}.json?details=false&limit=10`);
 
 	if (!response.ok) {
 		throw new Error(`Unable to find books by subject ${subject}.`);
