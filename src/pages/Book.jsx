@@ -55,7 +55,7 @@ export default function Book() {
 
     // Standard state
     return (
-        <>
+        <section>
             <div className="row g-5">
 
                 {/*Book Cover & Carousel*/}
@@ -86,6 +86,6 @@ export default function Book() {
                 </section>
 
             </div>
-        </>
+        </section>
     );
 }

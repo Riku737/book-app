@@ -40,7 +40,7 @@ export default function BookshelfBookCard({book}) {
                         {/*Date Added to Bookshelf*/}
                         <p>
                             <small>
-                                Added {book.date.toLocaleDateString("en-US", {month: "short", day: "numeric", year: "numeric"})}
+                                Added <time>{book.date.toLocaleDateString("en-US", {month: "short", day: "numeric", year: "numeric"})}</time>
                             </small>
                         </p>
                     </div>

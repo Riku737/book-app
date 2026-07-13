@@ -49,11 +49,9 @@ export default function Home() {
 
     // Standard state
     return (
-        <>
+        <section>
             <title>Home | BookBook</title>
-            <section>
-                <h1 className="mb-4">Trending Books (Weekly)</h1>
-            </section>
+            <h1 className="mb-4">Trending Books (Weekly)</h1>
             <section className="row g-4">
                 {books.map(
                     (book) =>
@@ -62,6 +60,6 @@ export default function Home() {
                         )
                 )}
             </section>
-        </>
+        </section>
     );
 }

@@ -9,11 +9,11 @@ export default function LoadingBookCards({title}) {
     }
 
     return(
-        <>
+        <section>
             <h1 className="mb-4">{title}</h1>
             <div className="row g-4">
                 {items}
             </div>
-        </>
+        </section>
     )
 }

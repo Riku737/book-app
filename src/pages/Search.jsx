@@ -55,13 +55,13 @@ export default function Search() {
 
     // Standard state
     return(
-        <>
+        <section>
             <h1 className="mb-4">{query ?? "Search by title or author"}</h1>
             <section className="row g-4">
                 {books.map((book, index) => (
                     <Card book={book} key={index} />
                 ))}
             </section>
-        </>
+        </section>
     );
 }

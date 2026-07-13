@@ -54,78 +54,80 @@ export default function Bookshelf() {
     }, [currentStatus]);
 
     return (
-        <>
+        <section>
             <h1 className="mb-4">My Bookshelf</h1>
 
             {/*Tab Buttons*/}
-            <ul className="nav nav-tabs mb-4" id="myTab" role="tablist">
+            <section>
+                <ul className="nav nav-tabs mb-4" id="myTab" role="tablist">
 
-                {/* Want to Read */}
-                <li className="nav-item" role="presentation">
-                    <button
-                        onClick={() => handleTabClick("want_to_read")}
-                        className={`nav-link ${(status === "want_to_read" || status === undefined) && "active"}`}
-                        id="want_to_read"
-                        type="button"
-                        role="tab"
-                        aria-controls="want_to_read-tab-pane"
-                        aria-selected="true"
-                    >
-                        Want to Read ({totalBooks.want_to_read})
-                    </button>
-                </li>
+                    {/* Want to Read */}
+                    <li className="nav-item" role="presentation">
+                        <button
+                            onClick={() => handleTabClick("want_to_read")}
+                            className={`nav-link ${(status === "want_to_read" || status === undefined) && "active"}`}
+                            id="want_to_read"
+                            type="button"
+                            role="tab"
+                            aria-controls="want_to_read-tab-pane"
+                            aria-selected="true"
+                        >
+                            Want to Read ({totalBooks.want_to_read})
+                        </button>
+                    </li>
 
-                {/* Currently Reading */}
-                <li className="nav-item" role="presentation">
-                    <button
-                        onClick={() => handleTabClick("reading")}
-                        className={`nav-link ${status === "reading" && "active"}`}
-                        id="reading"
-                        type="button"
-                        role="tab"
-                        aria-controls="reading-tab-pane"
-                        aria-selected="false"
-                    >
-                        Currently Reading ({totalBooks.reading})
-                    </button>
-                </li>
+                    {/* Currently Reading */}
+                    <li className="nav-item" role="presentation">
+                        <button
+                            onClick={() => handleTabClick("reading")}
+                            className={`nav-link ${status === "reading" && "active"}`}
+                            id="reading"
+                            type="button"
+                            role="tab"
+                            aria-controls="reading-tab-pane"
+                            aria-selected="false"
+                        >
+                            Currently Reading ({totalBooks.reading})
+                        </button>
+                    </li>
 
-                {/* Read */}
-                <li className="nav-item" role="presentation">
-                    <button
-                        onClick={() => handleTabClick("read")}
-                        className={`nav-link ${status === "read" && "active"}`}
-                        id="read"
-                        type="button"
-                        role="tab"
-                        aria-controls="read-tab-pane"
-                        aria-selected="false"
-                    >
-                        Read ({totalBooks.read})
-                    </button>
-                </li>
+                    {/* Read */}
+                    <li className="nav-item" role="presentation">
+                        <button
+                            onClick={() => handleTabClick("read")}
+                            className={`nav-link ${status === "read" && "active"}`}
+                            id="read"
+                            type="button"
+                            role="tab"
+                            aria-controls="read-tab-pane"
+                            aria-selected="false"
+                        >
+                            Read ({totalBooks.read})
+                        </button>
+                    </li>
 
-                {/* Did Not Finish */}
-                <li className="nav-item" role="presentation">
-                    <button
-                        onClick={() => handleTabClick("dnf")}
-                        className={`nav-link ${status === "dnf" && "active"}`}
-                        id="dnf"
-                        type="button"
-                        role="tab"
-                        aria-controls="dnf-tab-pane"
-                        aria-selected="false"
-                    >
-                        Did Not Finish ({totalBooks.dnf})
-                    </button>
-                </li>
-            </ul>
+                    {/* Did Not Finish */}
+                    <li className="nav-item" role="presentation">
+                        <button
+                            onClick={() => handleTabClick("dnf")}
+                            className={`nav-link ${status === "dnf" && "active"}`}
+                            id="dnf"
+                            type="button"
+                            role="tab"
+                            aria-controls="dnf-tab-pane"
+                            aria-selected="false"
+                        >
+                            Did Not Finish ({totalBooks.dnf})
+                        </button>
+                    </li>
+                </ul>
+            </section>
 
             {/*Tab Panes*/}
-            <div className="tab-content" id="myTabContent">
+            <section className="tab-content" id="myTabContent">
 
                 {/*Want to Read*/}
-                <div
+                <section
                     className={`tab-pane fade ${(status === "want_to_read" || status === undefined) && "show active"}`}
                     role="tabpanel"
                     aria-labelledby="want_to_read-tab"
@@ -136,10 +138,10 @@ export default function Bookshelf() {
                             <Card book={book} key={index} />
                         ))}
                     </div>
-                </div>
+                </section>
 
                 {/*Currently Reading*/}
-                <div
+                <section
                     className={`tab-pane fade ${status === "reading" && "show active"}`}
                     role="tabpanel"
                     aria-labelledby="reading-tab"
@@ -150,10 +152,10 @@ export default function Bookshelf() {
                             <Card book={book} key={index} />
                         ))}
                     </div>
-                </div>
+                </section>
 
                 {/*Read*/}
-                <div
+                <section
                     className={`tab-pane fade ${status === "read" && "show active"}`}
                     role="tabpanel"
                     aria-labelledby="read-tab"
@@ -164,10 +166,10 @@ export default function Bookshelf() {
                             <Card book={book} key={index} />
                         ))}
                     </div>
-                </div>
+                </section>
 
                 {/*Did Not Finish*/}
-                <div
+                <section
                     className={`tab-pane fade ${status === "dnf" && "show active"}`}
                     role="tabpanel"
                     aria-labelledby="dnf-tab"
@@ -178,10 +180,10 @@ export default function Bookshelf() {
                             <Card book={book} key={index} />
                         ))}
                     </div>
-                </div>
+                </section>
 
-            </div>
-        </>
+            </section>
+        </section>
     );
 }
 

@@ -49,13 +49,13 @@ export default function Author() {
 
     // Standard state
     return(
-        <>
+        <section>
             {/*Author name*/}
             <h1>{author.name}</h1>
             {/*Author biography*/}
             <p className="text-break" style={{"whiteSpace": "pre-line"}}>
                 {"bio" in author ? author.bio.value : "No Bio Found."}
             </p>
-        </>
+        </section>
     );
 }

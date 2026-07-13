@@ -58,13 +58,13 @@ export default function Subject() {
 
     // Standard state
     return(
-        <>
+        <section>
             <h1 className="mb-4">{subject}</h1>
-            <div className="row g-4">
+            <section className="row g-4">
                 {books.map((book, index) => (
                     <Card key={index} book={book} />
                 ))}
-            </div>
-        </>
+            </section>
+        </section>
     );
 }

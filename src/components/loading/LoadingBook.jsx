@@ -1,7 +1,7 @@
 
 export default function LoadingBook() {
     return(
-        <>
+        <section>
             <div className="row g-5">
 
                 <div className="col-md-6">
@@ -21,6 +21,6 @@ export default function LoadingBook() {
 
                 </div>
             </div>
-        </>
+        </section>
     );
 }
