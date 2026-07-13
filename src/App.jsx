@@ -1,5 +1,6 @@
 // React
-import './css/App.css';
+import './styles/css/App.css';
+import './styles/custom.scss';
 import { Routes, Route } from "react-router-dom";
 
 // Components

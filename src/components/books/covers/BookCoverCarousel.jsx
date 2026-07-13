@@ -1,4 +1,4 @@
-import "../../../css/book.css";
+import "../../../styles/css/book.css";
 
 export default function BookCoverCarousel({book}) {
     return(

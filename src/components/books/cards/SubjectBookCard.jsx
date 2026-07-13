@@ -1,4 +1,4 @@
-import BookAuthors from "../details/BookAuthors.jsx";
+import Authors from "../details/BookAuthors.jsx";
 
 export default function SubjectBookCard({book}) {
 
@@ -24,10 +24,10 @@ export default function SubjectBookCard({book}) {
 
                     {/*Book Title & Author*/}
                     <div className="d-flex flex-column">
-                        <h6 className="fw-medium m-0"><a href={book_link}>{book.title}</a></h6>
-                        <p className="m-0 fs-6">
+                        <h6 className="fw-medium m-0"><a className="link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href={book_link}>{book.title}</a></h6>
+                        <p className="m-0 fs-6 lh-sm">
                             <small>
-                                <BookAuthors names={book.authors?.map(a => a.name)} ids={book.authors?.map(a => a.key)} />
+                                <Authors names={book.authors?.map(a => a.name)} ids={book.authors?.map(a => a.key)} />
                             </small>
                         </p>
                     </div>

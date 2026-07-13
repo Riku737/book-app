@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Rubik:ital,wght@0,300..900;1,300..900&family=Trykker&display=swap');
+
+:root {
+    --pri_font: 'Rubik', sans-serif;
+    --sec_font: 'Abel', sans-serif;
+    --ter_font: 'Trykker', sans-serif;
+}
+
+body {
+    font-family: var(--pri_font), serif;
+}
+
+h1 {
+    font-family: var(--ter_font), serif;
+}
+
+h6 {
+    font-family: var(--pri_font), serif;
+}
+
+small {
+    font-family: var(--sec_font), serif;
+}

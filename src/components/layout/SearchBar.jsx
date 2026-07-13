@@ -15,7 +15,7 @@ function SearchBar() {
         <>
             <form
                 onSubmit={handleSubmit}
-                className="input-group position-absolute top-50 start-50 translate-middle w-25 d-none d-lg-flex"
+                className=" input-group position-absolute top-50 start-50 translate-middle w-25 d-none d-lg-flex"
                 role="search"
             >
                 {/*Search button*/}
@@ -32,7 +32,7 @@ function SearchBar() {
                     value={searchQuery}
                     required
                     type="text"
-                    className="form-control"
+                    className="bg-light form-control"
                     placeholder="Search by title or author (Open Library API)"
                     aria-label="Search"
                     aria-describedby="button-search-field"

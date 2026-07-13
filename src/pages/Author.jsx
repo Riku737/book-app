@@ -54,7 +54,7 @@ export default function Author() {
             <h1>{author.name}</h1>
             {/*Author biography*/}
             <p className="text-break" style={{"whiteSpace": "pre-line"}}>
-                {"bio" in author ? author.bio.value : "No Bio Found."}
+                {"bio" in author ? author.bio.value : "No bio found for author."}
             </p>
         </section>
     );

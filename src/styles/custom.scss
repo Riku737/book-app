@@ -1,0 +1,20 @@
+// 1. Functions (Required for things like color contrast)
+@import "../../node_modules/bootstrap/scss/functions";
+
+// 2. Your overrides (Must come before the variables file)
+$primary: #2c2d2b;
+$light: #FBFAF9;
+
+$border-color: #dbdad7;
+$hr-color: #dbdad7;
+$hr-border-color: #dbdad7;
+
+// 3. Bootstrap Variables
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
+
+// 4. Everything else
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/root";
+@import "../../node_modules/bootstrap/scss/bootstrap";

@@ -51,7 +51,7 @@ export default function Home() {
     return (
         <section>
             <title>Home | BookBook</title>
-            <h1 className="mb-4">Trending Books (Weekly)</h1>
+            <h1 className="mb-4 fw-medium">Trending Books (Weekly)</h1>
             <section className="row g-4">
                 {books.map(
                     (book) =>

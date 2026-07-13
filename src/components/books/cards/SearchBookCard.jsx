@@ -4,7 +4,7 @@ The components HomeBookCard and BookshelfBookCard are identical visually.
 However, the underlying code are completely different due to the inconsistent format of the API.
  */
 
-import BookAuthors from "../details/BookAuthors.jsx";
+import Authors from "../details/BookAuthors.jsx";
 
 export default function SearchBookCard({book}) {
 
@@ -30,12 +30,12 @@ export default function SearchBookCard({book}) {
                 <div className="d-flex flex-column">
 
                     {/*Book Title*/}
-                    <h6 className="fw-medium m-0"><a href={book_link}>{book.title}</a></h6>
+                    <h6 className="m-0"><a className="link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href={book_link}>{book.title}</a></h6>
 
                     {/*Authors*/}
-                    <p className="m-0 fs-6">
+                    <p className="m-0 fs-6 lh-sm">
                         <small>
-                            <BookAuthors names={book.author_name} ids={book.author_key?.map(key => ("/authors/" + key))} />
+                            <Authors names={book.author_name} ids={book.author_key?.map(key => ("/authors/" + key))} />
                         </small>
                     </p>
 

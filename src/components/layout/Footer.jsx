@@ -11,16 +11,15 @@ function Footer() {
                     {/*Far Left*/}
                     <div className="col-lg-3 col-6">
                         <h6>BookBook</h6>
-                        <p>A clean, simple catalog where you can organize every book in your reading life. It's your
-                            bookshelf.</p>
+                        <p>A simple app that lets you search for books and track what you want to read, are reading, have read, or did not finish.</p>
                     </div>
 
                     {/*Center Left*/}
                     <div className="col-lg-3 col-6">
                         <h6>Discover</h6>
                         <ul className="list-unstyled d-flex flex-column gap-2">
-                            <li><Link to="/home">Home</Link></li>
-                            <li><Link to="/search">Search</Link></li>
+                            <li><Link to="/home" className="link-underline link-underline-opacity-0 link-underline-opacity-100-hover">Home</Link></li>
+                            <li><Link to="/search" className="link-underline link-underline-opacity-0 link-underline-opacity-100-hover">Search</Link></li>
                         </ul>
                     </div>
 
@@ -28,21 +27,21 @@ function Footer() {
                     <div className="col-lg-3 col-6">
                         <h6>Bookshelf</h6>
                         <ul className="list-unstyled d-flex flex-column gap-2">
-                            <li><Link to="/bookshelf/want_to_read">Want to Read</Link></li>
-                            <li><Link to="/bookshelf/reading">Currently Reading</Link></li>
-                            <li><Link to="/bookshelf/read">Read</Link></li>
-                            <li><Link to="/bookshelf/dnf">Did Not Finish</Link></li>
+                            <li><Link to="/bookshelf/want_to_read" className="link-underline link-underline-opacity-0 link-underline-opacity-100-hover">Want to Read</Link></li>
+                            <li><Link to="/bookshelf/reading" className="link-underline link-underline-opacity-0 link-underline-opacity-100-hover">Currently Reading</Link></li>
+                            <li><Link to="/bookshelf/read" className="link-underline link-underline-opacity-0 link-underline-opacity-100-hover">Read</Link></li>
+                            <li><Link to="/bookshelf/dnf" className="link-underline link-underline-opacity-0 link-underline-opacity-100-hover">Did Not Finish</Link></li>
                         </ul>
                     </div>
 
                     {/*Far Right*/}
                     <div className="col-lg-3 col-6">
-                        <h6>Subject</h6>
+                        <h6>Subjects</h6>
                         <ul className="list-unstyled d-flex flex-column gap-2">
-                            <li><Link to="/subjects/Arts">Arts</Link></li>
-                            <li><Link to="/subjects/STEM">STEM</Link></li>
-                            <li><Link to="/subjects/Business">Business</Link></li>
-                            <li><Link to="/subjects/History">History</Link></li>
+                            <li><Link to="/subjects/Arts" className="link-underline link-underline-opacity-0 link-underline-opacity-100-hover">Arts</Link></li>
+                            <li><Link to="/subjects/STEM" className="link-underline link-underline-opacity-0 link-underline-opacity-100-hover">STEM</Link></li>
+                            <li><Link to="/subjects/Business" className="link-underline link-underline-opacity-0 link-underline-opacity-100-hover">Business</Link></li>
+                            <li><Link to="/subjects/History" className="link-underline link-underline-opacity-0 link-underline-opacity-100-hover">History</Link></li>
                         </ul>
                     </div>
 
