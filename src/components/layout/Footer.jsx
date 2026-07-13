@@ -50,10 +50,10 @@ function Footer() {
                 <hr/>
 
                 {/*Website notice/disclaimer*/}
-                <section>
+                <small>
                     <p>This website is a personal, non-commercial project. All book information and cover images are sourced from the <a href="https://openlibrary.org/" target="_blank">Open Library API</a>, and all trademarks belong to their respective owners.</p>
                     <p>This site stores data locally in your browser using IndexedDB. No information is shared or uploaded.</p>
-                </section>
+                </small>
 
             </div>
         </footer>
