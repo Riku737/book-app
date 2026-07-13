@@ -20,7 +20,6 @@ function Footer() {
                         <h6>Discover</h6>
                         <ul className="list-unstyled d-flex flex-column gap-2">
                             <li><Link to="/home">Home</Link></li>
-                            <li><Link to="/subjects">Subjects</Link></li>
                             <li><Link to="/search">Search</Link></li>
                         </ul>
                     </div>
