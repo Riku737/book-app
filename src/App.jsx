@@ -1,8 +1,10 @@
 // React
 import './styles/css/App.css';
 import './styles/custom.scss';
-import { Analytics } from "@vercel/analytics/next";
 import { Routes, Route } from "react-router-dom";
+
+// Vercel
+import { Analytics } from "@vercel/analytics/next";
 
 // Components
 import NavBar from './components/layout/NavBar.jsx';
