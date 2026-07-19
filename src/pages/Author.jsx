@@ -48,8 +48,6 @@ export default function Author() {
         );
     }
 
-    console.log(author);
-
     // Standard state
     return(
         <section>
