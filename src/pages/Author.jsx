@@ -4,6 +4,7 @@ import {getAuthor} from "../services/api.js";
 
 // Components
 import Loading from "../components/loading/LoadingAuthor.jsx";
+import ReactMarkdown from "react-markdown";
 
 export default function Author() {
 
@@ -53,9 +54,9 @@ export default function Author() {
             {/*Author name*/}
             <h1>{author.name}</h1>
             {/*Author biography*/}
-            <p className="text-break" style={{"whiteSpace": "pre-line"}}>
+            <ReactMarkdown>
                 {"bio" in author ? author.bio.value : "No bio found for author."}
-            </p>
+            </ReactMarkdown>
         </section>
     );
 }
